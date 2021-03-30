@@ -559,62 +559,65 @@
 #     >/dev/null 2>&1 &
 
 # # random reproduce get test result bert_gcn
-
-# CUDA_VISIBLE_DEVICES=1 nohup python train.py \
-#     --model_name bert_gcn \
-#     --dataset restaurant \
-#     --bert_dim 768 \
-#     --freeze_bert False \
-#     --learning_rate 2e-5 \
-#     --from_xml \
-#     --step_eval \
-#     >/dev/null 2>&1 &
-
-# CUDA_VISIBLE_DEVICES=2 nohup python train.py \
-#     --model_name bert_gcn \
-#     --dataset laptop \
-#     --bert_dim 768 \
-#     --freeze_bert True \
-#     --learning_rate 2e-5 \
-#     --from_xml \
-#     --step_eval \
-#     >/dev/null 2>&1 &
-
-# CUDA_VISIBLE_DEVICES=3 nohup python train.py \
-#     --model_name bert_gcn \
-#     --dataset twitter \
-#     --bert_dim 768 \
-#     --freeze_bert True \
-#     --learning_rate 2e-5 \
-#     --step_eval \
-#     >/dev/null 2>&1 &
-
-# wait 
-# random reproduce get test result bert_spc
-
+    
 CUDA_VISIBLE_DEVICES=1 nohup python train.py \
-    --model_name bert_spc \
+    --model_name bert_gcn \
     --dataset restaurant \
     --bert_dim 768 \
     --freeze_bert False \
     --learning_rate 2e-5 \
+    --from_xml \
+    --step_eval \
+    --log_step 20 \
     >/dev/null 2>&1 &
 
 CUDA_VISIBLE_DEVICES=2 nohup python train.py \
-    --model_name bert_spc \
+    --model_name bert_gcn \
     --dataset laptop \
     --bert_dim 768 \
     --freeze_bert True \
     --learning_rate 2e-5 \
+    --from_xml \
+    --step_eval \
+    --log_step 20 \
     >/dev/null 2>&1 &
 
 CUDA_VISIBLE_DEVICES=3 nohup python train.py \
-    --model_name bert_spc \
+    --model_name bert_gcn \
     --dataset twitter \
     --bert_dim 768 \
     --freeze_bert True \
     --learning_rate 2e-5 \
+    --step_eval \
+    --log_step 20 \
     >/dev/null 2>&1 &
+
+# wait 
+# random reproduce get test result bert_spc
+
+# CUDA_VISIBLE_DEVICES=1 nohup python train.py \
+#     --model_name bert_spc \
+#     --dataset restaurant \
+#     --bert_dim 768 \
+#     --freeze_bert False \
+#     --learning_rate 2e-5 \
+#     >/dev/null 2>&1 &
+
+# CUDA_VISIBLE_DEVICES=2 nohup python train.py \
+#     --model_name bert_spc \
+#     --dataset laptop \
+#     --bert_dim 768 \
+#     --freeze_bert True \
+#     --learning_rate 2e-5 \
+#     >/dev/null 2>&1 &
+
+# CUDA_VISIBLE_DEVICES=3 nohup python train.py \
+#     --model_name bert_spc \
+#     --dataset twitter \
+#     --bert_dim 768 \
+#     --freeze_bert True \
+#     --learning_rate 2e-5 \
+#     >/dev/null 2>&1 &
 
 # wait 
 # # random reproduce get test result bert_gcn_ada
@@ -641,23 +644,23 @@ CUDA_VISIBLE_DEVICES=3 nohup python train.py \
 #     --from_xml \
 #     >/dev/null 2>&1 &
 
-wait 
+# wait 
 # random reproduce get test result bert_ada
 
-CUDA_VISIBLE_DEVICES=1 nohup python train.py \
-    --model_name bert_spc \
-    --dataset restaurant \
-    --bert_dim 768 \
-    --pretrained_bert_name /home/wwz/absa/LCF-ABSA/data/restaurants_10mio_ep3 \
-    --freeze_bert False \
-    --learning_rate 2e-5 \
-    >/dev/null 2>&1 &
+# CUDA_VISIBLE_DEVICES=1 nohup python train.py \
+#     --model_name bert_spc \
+#     --dataset restaurant \
+#     --bert_dim 768 \
+#     --pretrained_bert_name /home/wwz/absa/LCF-ABSA/data/restaurants_10mio_ep3 \
+#     --freeze_bert False \
+#     --learning_rate 2e-5 \
+#     >/dev/null 2>&1 &
 
-CUDA_VISIBLE_DEVICES=2 nohup python train.py \
-    --model_name bert_spc \
-    --dataset laptop \
-    --pretrained_bert_name /home/wwz/absa/LCF-ABSA/data/laptops_1mio_ep30 \
-    --bert_dim 768 \
-    --freeze_bert True \
-    --learning_rate 2e-5 \
-    >/dev/null 2>&1 &
+# CUDA_VISIBLE_DEVICES=2 nohup python train.py \
+#     --model_name bert_spc \
+#     --dataset laptop \
+#     --pretrained_bert_name /home/wwz/absa/LCF-ABSA/data/laptops_1mio_ep30 \
+#     --bert_dim 768 \
+#     --freeze_bert True \
+#     --learning_rate 2e-5 \
+#     >/dev/null 2>&1 &

@@ -438,16 +438,16 @@ def main():
     }
     ori_dataset_files = {
         'twitter': {
-            'train': './datasets/acl-14-short-data/train.raw',
-            'test': './datasets/acl-14-short-data/test.raw'
+            'train': '../bert_gcn/datasets/acl-14-short-data/train.raw',
+            'test': '../bert_gcn/datasets/acl-14-short-data/test.raw'
         },
         'restaurant': {
-            'train': './datasets/semeval14/Restaurants_Train.xml',
-            'test': './datasets/semeval14/Restaurants_Test_Gold.xml'
+            'train': '../bert_gcn/datasets/semeval14/Restaurants_Train.xml',
+            'test': '../bert_gcn/datasets/semeval14/Restaurants_Test_Gold.xml'
         },
         'laptop': {
-            'train': './datasets/semeval14/Laptops_Train.xml',
-            'test': './datasets/semeval14/Laptops_Test_Gold.xml'
+            'train': '../bert_gcn/datasets/semeval14/Laptops_Train.xml',
+            'test': '../bert_gcn/datasets/semeval14/Laptops_Test_Gold.xml'
         }
 
     }
@@ -509,8 +509,8 @@ def main():
     opt.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu') \
         if opt.device is None else torch.device(opt.device)
 
-    # log_file = '{}-{}-{}.log'.format(opt.model_name, opt.dataset, strftime("%y%m%d-%H%M", localtime()))
-    # logger.addHandler(logging.FileHandler(log_file))
+    log_file = '{}-{}-{}.log'.format(opt.model_name, opt.dataset, strftime("%y%m%d-%H%M", localtime()))
+    logger.addHandler(logging.FileHandler(log_file))
 
     ins = Instructor(opt)
     if opt.cross_val_fold > 0 and opt.valset_ration > 0:

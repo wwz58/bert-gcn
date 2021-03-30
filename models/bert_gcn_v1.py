@@ -3,7 +3,7 @@
 from torch import nn
 import torch.nn.functional as F
 import torch
-from transformers.modeling_bert import BertSelfAttention
+from pytorch_transformers.modeling_bert import BertSelfAttention
 from transformers import AutoModel, AutoConfig
 
 class LayerNorm(nn.Module):
